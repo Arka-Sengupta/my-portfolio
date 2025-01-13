@@ -126,7 +126,7 @@
             justify-content: space-around;
             padding: 50px 10%;
             flex-wrap: wrap;
-            gap: 20px; 
+            gap: 20px; /* Add gap for better spacing */
         }
 
         .certification {
@@ -204,14 +204,14 @@
             }
 
             .certifications {
-                flex-direction: column; 
-                align-items: center;
-                gap: 30px; 
+                flex-direction: column; /* Stack certifications vertically */
+                align-items: center;   /* Center-align the certifications */
+                gap: 30px; /* Increase gap for better spacing */
             }
 
             .certification {
-                width: 100%;
-                max-width: 300px;
+                width: 100%; /* Take full width of the container */
+                max-width: 300px; /* Optional: Limit the maximum width for readability */
              }
         }
 
@@ -313,12 +313,36 @@
     
     <section id="contact" class="contact">
         <h2>Contact(under development)</h2>
-        <form action="#" method="post">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
+        <form id="contact-form" action="/api/contact" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+    
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" required></textarea><br><br>
+    
+            <input type="submit" value="Submit">
         </form>
+    
+        <script>
+            document.getElementById('contact-form').addEventListener('submit', async (event) => {
+                event.preventDefault();
+    
+                const formData = new FormData(event.target);
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    body: formData,
+                });
+    
+                if (response.ok) {
+                    alert('Message sent successfully!');
+                } else {
+                    alert('Failed to send message.');
+                }
+            });
+        </script>
     </section>
     
     <footer>
