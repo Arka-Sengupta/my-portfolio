@@ -23,7 +23,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 10%;
+            padding: 20px 5%;
             background: #222;
             color: #fff;
             position: sticky;
@@ -39,7 +39,8 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -56,6 +57,7 @@
             height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x1080');
             background-size: cover;
+            background-position: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -66,12 +68,12 @@
         }
 
         .hero h2 {
-            font-size: 3em;
+            font-size: 2.5em;
             animation: fadeInDown 1.5s ease;
         }
 
         .hero p {
-            font-size: 1.2em;
+            font-size: 1em;
             margin-top: 10px;
             animation: fadeInUp 2s ease;
         }
@@ -87,13 +89,13 @@
         }
 
         .about, .projects, .contact {
-            padding: 50px 10%;
+            padding: 50px 5%;
         }
 
         .about h2, .projects h2, .contact h2, .certifications h2 {
             text-align: center;
             margin-bottom: 20px;
-            font-size: 2.5em;
+            font-size: 2em;
         }
 
         .about p, .projects p {
@@ -103,7 +105,7 @@
 
         .projects .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
 
@@ -120,26 +122,17 @@
         }
 
         .certifications {
-          display: flex;
-          justify-content: space-around;
-          padding: 50px 10%;
-          flex-wrap: wrap;
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 10%;
+            flex-wrap: wrap;
+            gap: 20px; /* Add gap for better spacing */
         }
 
         .certification {
-          text-align: center;
-          width: 200px; /* Set width for each certification */
-          margin: 20px 0;
-        }
-        .certification-box {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 8px;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 200px;
+            margin: 20px 0;
         }
 
         .certification img {
@@ -154,15 +147,11 @@
         }
 
         .contact form {
-            max-width: 500px;
+            max-width: 100%;
             margin: 0 auto;
+            padding: 20px;
             border-radius: 8px;
-            overflow: hidden;
-            transition: box-shadow 0.3s ease;
-        }
-
-        .contact form:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
         }
 
         .contact form input,
@@ -174,11 +163,6 @@
             font-size: 1em;
             border: none;
             border-radius: 4px;
-        }
-
-        .contact form input,
-        .contact form textarea {
-            background-color: #f9f9f9;
         }
 
         .contact form button {
@@ -198,95 +182,148 @@
             color: white;
             margin-top: auto;
         }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                justify-content: space-between;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            .hero h2 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .certifications {
+                flex-direction: column; /* Stack certifications vertically */
+                align-items: center;   /* Center-align the certifications */
+                gap: 30px; /* Increase gap for better spacing */
+            }
+
+            .certification {
+                width: 100%; /* Take full width of the container */
+                max-width: 300px; /* Optional: Limit the maximum width for readability */
+             }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 1.8em;
+            }
+
+            .hero p {
+                font-size: 0.9em;
+            }
+
+            .about h2, .projects h2, .contact h2 {
+                font-size: 1.5em;
+            }
+
+            .certifications {
+                gap: 5px;
+            }
+
+            .certification {
+                width: 100px;
+            }
+        }
     </style>
 </head>
 <body>
-
-<header>
-    <h1>Arka Sengupta</h1>
-    <nav>
-        <ul>
-            <li><a href="#about" aria-label="About Me">About</a></li>
-            <li><a href="#projects" aria-label="My Projects">Projects</a></li>
-            <li><a href="#certifications" aria-label="My Certifications">Certifications</a></li>
-            <li><a href="#contact" aria-label="Contact Me">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-
-<section class="hero">
-    <h2>Welcome to My Portfolio</h2>
-    <p>Discover my work and experience</p>
-</section>
-
-<section id="about" class="about">
-  <h2>About Me</h2>
-  <p>Hi, I’m Arka Sengupta, a first-year B.Tech student specializing in Computer Science Engineering at VIT-AP University. I completed my Middle and High School education at Kalyani Public School, Barasat.</p>
-  <p><strong>Aspiring Full-Stack Developer:</strong> I am passionate about full-stack web development, with a strong foundation in frontend technologies. I am currently expanding my skill set to include backend development and aim to become a proficient full-stack developer.</p>
-  <p><strong>Interest in AI/ML:</strong> I have a keen interest in Artificial Intelligence and Machine Learning, and I am actively exploring and learning more about these exciting fields.</p>
-  <p><strong>Technical Skills:</strong></p>
-  <ul>
-      <li><strong>Frontend:</strong> Strong proficiency in HTML, CSS, and JavaScript</li>
-      <li><strong>Backend:</strong> Learning Node.js and Python</li>
-      <li><strong>Languages:</strong> Familiar with Java and C/C++</li>
-  </ul>
-  <p>I am always eager to learn, grow, and collaborate on innovative projects. Feel free to connect or reach out to discuss technology, AI/ML, or web development.</p>
-</section>
-
-
-<section id="projects" class="projects">
-  <h2>Projects</h2>
-  <div class="grid">
-      <div class="project">
-          <h3>2048 Game in Terminal</h3>
-          <p><a href="https://github.com/Arka-Sengupta/2048-GAME" target="_blank" style="color: #000000; text-decoration: none;">Developed a terminal-based version of the 2048 game in Python.(Click here to view the game's code)</a></p>
+    <header>
+        <h1>Arka Sengupta</h1>
+        <nav>
+            <ul>
+                <li><a href="#about" aria-label="About Me">About</a></li>
+                <li><a href="#projects" aria-label="My Projects">Projects</a></li>
+                <li><a href="#certifications" aria-label="My Certifications">Certifications</a></li>
+                <li><a href="#contact" aria-label="Contact Me">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h2>Welcome to My Portfolio</h2>
+        <p>Discover my work and experience</p>
+    </section>
+    
+    <section id="about" class="about">
+      <h2>About Me</h2>
+      <p>Hi, I’m Arka Sengupta, a first-year B.Tech student specializing in Computer Science Engineering at VIT-AP University. I completed my Middle and High School education at Kalyani Public School, Barasat.</p>
+      <p><strong>Aspiring Full-Stack Developer:</strong> I am passionate about full-stack web development, with a strong foundation in frontend technologies. I am currently expanding my skill set to include backend development and aim to become a proficient full-stack developer.</p>
+      <p><strong>Interest in AI/ML:</strong> I have a keen interest in Artificial Intelligence and Machine Learning, and I am actively exploring and learning more about these exciting fields.</p>
+      <p><strong>Technical Skills:</strong></p>
+      <ul>
+          <li><strong>Frontend:</strong> Strong proficiency in HTML, CSS, and JavaScript</li>
+          <li><strong>Backend:</strong> Learning Node.js and Python</li>
+          <li><strong>Languages:</strong> Familiar with Java and C/C++</li>
+      </ul>
+      <p>I am always eager to learn, grow, and collaborate on innovative projects. Feel free to connect or reach out to discuss technology, AI/ML, or web development.</p>
+    </section>
+    
+    
+    <section id="projects" class="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+          <div class="project">
+              <h3>2048 Game in Terminal</h3>
+              <p><a href="https://github.com/Arka-Sengupta/2048-GAME" target="_blank" style="color: #000000; text-decoration: none;">Developed a terminal-based version of the 2048 game in Python.(Click here to view the game's code)</a></p>
+          </div>
       </div>
-  </div>
-</section>
-
-
-
-<section id="certifications" class="certifications">
-    <h2>Certifications</h2>
-    <div class="certification">
-        <a href="https://www.hackerrank.com/certificates/30411081fa7e" target="_blank">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToJUggt1jqA1FFMwuD0-Vtcx5Qo29hKkBD8g&s" alt="HackerRank Logo">
-            <p><strong>JavaScript Basics by HackerRank</strong></p>
-        </a>
-    </div>
-    <div class="certification">
-        <a href="https://www.mygreatlearning.com/certificate/WUSQLTTN" target="_blank">
-            <img src="https://www.mygreatlearning.com/favicon.ico" alt="Great Learning Logo">
-            <p><strong>NumPy Certification by Great Learning</strong></p>
-        </a>
-    </div>
-    <div class="certification">
-        <a href="https://www.hackerrank.com/certificates/e7e58b26c571" target="_blank">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToJUggt1jqA1FFMwuD0-Vtcx5Qo29hKkBD8g&s" alt="HackerRank Logo">
-            <p><strong>Python Basics by HackerRank</strong></p>
-        </a>
-    </div>
-    <div class="certification">
-        <a href="https://matlabacademy.mathworks.com/progress/share/certificate.html?id=21616217-eac8-4ad9-a2a4-eb2ffebc2c41" target="_blank">
-            <img src="https://www.mathworks.com/favicon.ico" alt="MathWorks Logo">
-            <p><strong>MatLab by MathWorks</strong></p>
-        </a>
-    </div>
-</section>
-
-<section id="contact" class="contact">
-    <h2>Contact(under development)</h2>
-    <form action="#" method="post">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-</section>
-
-<footer>
-    <p>© 2025 Arka Sengupta. All Rights Reserved.</p>
-</footer>
-
+    </section>
+    
+    
+    
+    <section id="certifications" class="certifications">
+        <h2>Certifications</h2>
+        <div class="certification">
+            <a href="https://www.hackerrank.com/certificates/30411081fa7e" target="_blank">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToJUggt1jqA1FFMwuD0-Vtcx5Qo29hKkBD8g&s" alt="HackerRank Logo">
+                <p><strong>JavaScript Basics by HackerRank</strong></p>
+            </a>
+        </div>
+        <div class="certification">
+            <a href="https://www.mygreatlearning.com/certificate/WUSQLTTN" target="_blank">
+                <img src="https://www.mygreatlearning.com/favicon.ico" alt="Great Learning Logo">
+                <p><strong>NumPy Certification by Great Learning</strong></p>
+            </a>
+        </div>
+        <div class="certification">
+            <a href="https://www.hackerrank.com/certificates/e7e58b26c571" target="_blank">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToJUggt1jqA1FFMwuD0-Vtcx5Qo29hKkBD8g&s" alt="HackerRank Logo">
+                <p><strong>Python Basics by HackerRank</strong></p>
+            </a>
+        </div>
+        <div class="certification">
+            <a href="https://matlabacademy.mathworks.com/progress/share/certificate.html?id=21616217-eac8-4ad9-a2a4-eb2ffebc2c41" target="_blank">
+                <img src="https://www.mathworks.com/favicon.ico" alt="MathWorks Logo">
+                <p><strong>MatLab by MathWorks</strong></p>
+            </a>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <h2>Contact(under development)</h2>
+        <form action="#" method="post">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    
+    <footer>
+        <p>© 2025 Arka Sengupta. All Rights Reserved.</p>
+    </footer>
+    
 </body>
 </html>
